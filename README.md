@@ -1,2 +1,2 @@
-BuddyPress-2014-Survey-Results
+BuddyPress 2014 Survey Results
 ==============================
