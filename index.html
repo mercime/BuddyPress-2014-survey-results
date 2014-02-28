@@ -1,0 +1,936 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="2014 BuddyPress Survey Results">
+	<meta name="author" content="Mercime for BuddyPress.org">
+	<meta name="keywords" content="buddypress, buddypress.org, survey, survey results">
+	<title>BuddyPress 2014 Survey Results</title>
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/custom.css" />
+	<script src="js/jquery.js"></script>
+	<script src="js/Chart.js"></script>
+	<script src="js/modernizr.min.js"></script>
+</head>
+
+<body>
+	<div id="buddypress" class="hfeed site">
+		<div id="header" class="row index">
+			<header class="represent" role="banner">
+				<h1 class="title"><img src="images/buddypress.png" class="logo" alt="BuddyPress Logo" /> <br />BuddyPress 2014 Survey Results</h1>
+			</header>
+		</div><!-- #header -->
+
+		<main id="content" class="main-content" role="main">
+
+			<section class="row gen-info">
+				<header class="entry-header">
+					<h2 class="entry-title">General Information</h2>
+				</header>
+				
+				<div id="geninfo" class="block">
+					<div class="row">
+						<h3>338 Survey Participants from 52 Countries</h3>
+						<ul class="countries row">
+							<li class="icon algeria"> Algeria</li> 
+							<li class="icon argentina"> Argentina</li> 
+							<li class="icon australia"> Australia</li> 
+							<li class="icon austria"> Austria</li> 
+							<li class="icon belgium"> Belgium</li> 
+							<li class="icon botswana"> Botswana</li> 
+							<li class="icon brazil"> Brazil</li> 
+							<li class="icon canada"> Canada</li>
+							<li class="icon chile"> Chile</li> 
+							<li class="icon china"> China</li> 
+							<li class="icon colombia"> Colombia</li> 
+							<li class="icon denmark"> Denmark</li> 
+							<li class="icon france"> France</li> 
+							<li class="icon germany"> Germany</li> 
+							<li class="icon greece"> Greece</li> 
+							<li class="icon guyana"> Guyana</li> 
+							<li class="icon hungary"> Hungary</li> 
+							<li class="icon iceland"> Iceland</li> 
+							<li class="icon india"> India</li> 
+							<li class="icon indonesia"> Indonesia</li> 
+							<li class="icon iran"> Iran</li>
+							<li class="icon ireland"> Ireland</li> 
+							<li class="icon israel"> Israel</li> 
+							<li class="icon italy"> Italy</li> 
+							<li class="icon japan"> Japan</li> 
+							<li class="icon malaysia"> Malaysia</li> 
+							<li class="icon mexico"> Mexico</li> 
+							<li class="icon netherlands"> Netherlands</li> 
+							<li class="icon new-zealand"> New Zealand</li> 
+							<li class="icon nigeria"> Nigeria</li> 
+							<li class="icon norway"> Norway</li> 
+							<li class="icon pakistan"> Pakistan</li> 
+							<li class="icon peru"> Peru</li> 
+							<li class="icon philippines"> Philippines</li> 
+							<li class="icon poland"> Poland</li> 
+							<li class="icon portugal"> Portugal</li> 
+							<li class="icon romania"> Romania</li> 
+							<li class="icon russia"> Russia</li> 
+							<li class="icon singapore"> Singapore</li> 
+							<li class="icon south-africa"> South Africa</li> 
+							<li class="icon spain"> Spain</li> 
+							<li class="icon sri-lanka"> Sri Lanka</li> 
+							<li class="icon sweden"> Sweden</li> 
+							<li class="icon switzerland"> Switzerland</li> 
+							<li class="icon taiwan"> Taiwan</li> 
+							<li class="icon thailand"> Thailand</li>
+							<li class="icon turkey"> Turkey</li>
+							<li class="icon ukraine"> Ukraine</li> 
+							<li class="icon united-arab-emirates"> United Arab Emirates</li> 
+							<li class="icon united-kingdom"> United Kingdom</li> 
+							<li class="icon united-states"> United States</li> 
+							<li class="icon vietnam"> Vietnam</li> 
+						</ul>
+					</div>
+						
+					<div class="row">
+						<div class="grid col4 center genders">
+							<h3>Gender</h3>
+							<div class="canvas-container">
+								<canvas id="genders" width="150" height="150"></canvas>
+							</div>
+							<ul class="legend">
+								<li><span class="gender-male">&block;</span> Male: 89%</li>
+								<li><span class="gender-female">&block;</span> Female: 11%</li> 
+							</ul>
+
+						</div>
+						<div class="grid col4">
+							<h3>Top Countries</h3>
+							<ol class="top-countries">
+								<li>United States: 35%</li> 	
+								<li>United Kingdom: 9%</li> 	
+								<li>Germany: 7%</li> 	
+								<li>France & India: 4%</li>	
+								<li>Netherlands, Spain, & Canada: 3%</li>	
+								<li>Italy & Australia: 2%</li>	
+							</ol>
+						</div>
+						<div class="grid col4 end">
+							<h3>Top U.S. States</h3>
+							<ol class="top-states">
+								<li>California: 20%</li> 	
+								<li>New York: 8%</li> 	
+								<li>New Jersey: 6%</li> 	
+								<li>Texas, Virginia, Washington, & Maryland: 4% </li>	
+								<li>Massachusetts, Illinois, Georgia, Colorado, &  Florida: 3% </li>	
+							</ol>
+						</div>
+					</div><!-- .row -->
+				</div>
+			</section><!-- .gen-info -->
+			
+			<section class="row your-sites">
+				<header class="entry-header">
+					<h2 class="entry-title">Your BuddyPress Sites</h2>
+				</header><!-- .entry-header -->
+
+				<div id="yoursites" class="block">
+					<div class="row">
+						<div class="grid col6 box">
+			
+							<h3>BP Versions Used</h3>
+							<dl class="bp-version clearfix">
+								<dt>BuddyPress 1.9+</dt>
+									<dd class="first"><span class="first-one slide"><em>85.13%</em></span></dd>
+								<dt>BuddyPress 1.8+</dt>
+									<dd class="second"><span class="second-one slide"><em>23.64%</em></span></dd>
+								<dt>BuddyPress 1.6+</dt>
+									<dd class="third"><span class="third-one slide"><em>4.72%</em></span></dd>
+								<dt>BuddyPress 1.7+</dt>
+									<dd class="fourth"><span class="fourth-one slide"><em>4.72%</em></span></dd>
+								<dt>Other Option</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>1.01%</em></span></dd>
+							</dl>
+						</div>
+						<div class="grid col6 end box">
+							<h3>WP Versions Used</h3>
+							<dl class="wp-version clearfix">
+								<dt>WordPress 3.8+</dt>
+									<dd class="first"><span class="first-one slide"><em>88.25%</em></span></dd>
+								<dt>WordPress  3.7+</dt>
+									<dd class="second"><span class="second-one slide"><em>18.67%</em></span></dd>
+								<dt>WordPress  3.5+</dt>
+									<dd class="third"><span class="third-one slide"><em>6.02%</em></span></dd>
+								<dt>WordPress  3.6+</dt>
+									<dd class="fourth"><span class="fourth-one slide"><em>5.42%</em></span></dd>
+								<dt>Other Option</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>1.8%</em></span></dd>						
+							</dl>
+						</div>
+					</div><!-- .row -->
+					
+					<div class="row">
+						<div class="grid col6 box">
+							<h3>BP Sites Built</h3>
+							<dl class="sites-built clearfix">
+								<dt>2 to 5 sites</dt>
+									<dd class="first"><span class="first-one slide"><em>44%</em></span></dd>
+								<dt>1 site</dt>
+									<dd class="second"><span class="second-one slide"><em>38%</em></span></dd>
+								<dt>16 sites or more</dt>
+									<dd class="third"><span class="third-one slide"><em>8%</em></span></dd>
+								<dt>6 to 10 sites</dt>
+									<dd class="fourth"><span class="fourth-one slide"><em>8%</em></span></dd>
+								<dt>11 to 15 sites</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>1%</em></span></dd>
+							</dl>
+						</div>
+						<div class="grid col6 end box">
+							<h3>BP Sites Hosted</h3>
+							<dl class="sites-hosted clearfix">
+								<dt>Shared Hosting</dt>
+									<dd class="first"><span class="first-one slide"><em>59.58%</em></span></dd>
+								<dt>Virtual Private Server</dt>
+									<dd class="second"><span class="second-one slide"><em>33.53%</em></span></dd>
+								<dt>Dedicated Server</dt>
+									<dd class="third"><span class="third-one slide"><em>22.45%</em></span></dd>
+								<dt>Other (Managed Hosting: 4.66%)</dt>
+									<dd class="sixth"><span class="sixth-one slide"><em>6.36%</em></span></dd>
+								<dt>Not sure</dt>
+									<dd class="fourth"><span class="fourth-one slide"><em>5%</em></span></dd>
+							</dl>
+						</div>
+					</div><!-- .row -->
+					
+					<div class="row">
+						<div class="grid col6 box">
+							<h3>Estimated Time to Build BP Site on single WP Install</h3>
+							<dl class="bp-wp clearfix">
+								<dt>Seven days</dt>	
+									<dd class="first"><span class="first-one slide"><em>31%</em></span></dd>
+								<dt>Three days</dt>	
+									<dd class="second"><span class="second-one slide"><em>20.36%</em></span></dd>
+								<dt>One month</dt>	
+									<dd class="third"><span class="third-one slide"><em>18.23%</em></span></dd>
+								<dt>Other Option</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>15.80%</em></span></dd>
+								<dt>Two months</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>10.03%</em></span></dd>
+								<dt>Six months</dt>
+									<dd class="sixth"><span class="sixth-one slide"><em>4.55%</em></span></dd>
+							</dl>
+						</div>
+						<div class="grid col6 end box">
+							<h3>Estimated Time to Build BP Site on WP Multisite Install</h3>
+							<dl class="bp-wpms clearfix">
+								<dt>Other Option</dt>
+									<dd class="first"><span class="first-one slide"><em>26.26%</em></span></dd>
+								<dt>One month</dt>
+									<dd class="second"><span class="second-one slide"><em>24.24%</em></span></dd>
+								<dt>Seven days</dt>
+									<dd class="third"><span class="third-one slide"><em>20.20%</em></span></dd>
+								<dt>Two months</dt>
+									<dd class="fourth"><span class="fourth-one slide"><em>12.45%</em></span></dd>
+								<dt>Three days</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>9.42%</em></span></dd>
+								<dt>Six months</dt>
+									<dd class="sixth"><span class="sixth-one slide"><em>7.40%</em></span></dd>
+							</dl>
+						</div>
+					</div><!-- .row -->
+					
+					<div class="row">
+						<div class="grid col8 box">
+							<h3>BP Users</h3>
+							<dl class="bp-users clearfix">
+								<dt>I use BuddyPress in my own site.</dt>	
+									<dd class="first"><span class="first-one slide"><em>37.65%</em></span></dd>
+								<dt>I build BuddyPress sites for others.</dt>	
+									<dd class="second"><span class="second-one slide"><em>27.40%</em></span></dd>
+								<dt>I build BuddyPress sites and create BP themes and plugins.</dt>	
+									<dd class="third"><span class="third-one slide"><em>11.74%</em></span></dd>
+								<dt>I am a site admin of a BuddyPress installation.</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>11.74%</em></span></dd>
+								<dt>I am an advanced BuddyPress Developer - I can do anything BP.</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>8.13%</em></span></dd>
+								<dt>I create BuddyPress Themes.</dt>	
+									<dd class="sixth"><span class="sixth-one slide"><em>2.40%</em></span></dd>
+								<dt>I create BuddyPress Plugins.</dt>	
+									<dd class="seventh"><span class="seventh-one slide"><em>0.60%</em></span></dd>
+								<dt>I am a member of a BuddyPress powered community.</dt>
+									<dd class="eighth"><span class="eighth-one slide"><em>0.30%</em></span></dd>
+							</dl>
+						</div>
+						<div class="grid col4 end box explorer">
+							<h3>IE Versions</h3>
+							
+							<dl class="bp-ie clearfix">
+								<dt>IE 8</dt>	
+									<dd class="first"><span class="first-one slide"><em>36.30%</em></span></dd>
+								<dt>IE 9</dt>	
+									<dd class="second"><span class="second-one slide"><em>28.71%</em></span></dd>
+								<dt>IE 10</dt>	
+									<dd class="third"><span class="third-one slide"><em>12.97%</em></span></dd>
+								<dt>Other option*</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>11.55%</em></span></dd>
+								<dt>IE 7</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>10.56%</em></span></dd>
+							</dl>
+							<hr />
+							<p>*Other option responses range from "Site is not up yet" to "What is Internet Explorer?" to "I don't let members to use IE.", among others in the same vein.<p>
+						</div>
+					</div><!-- .row -->
+
+				</div><!-- #your-sites  -->
+			</section><!-- .your-sites -->
+
+			<section class="row themes-plugins">
+				<header class="entry-header">
+					<h2 class="entry-title">Themes and Plugins</h2>
+				</header><!-- .entry-header -->		
+
+				<div id="themesplugins" class="block">
+					<div class="row">
+						<div class="grid col6 box">
+							<h3>Themes Used for BP Sites</h3>
+							<dl class="themes-used clearfix">
+								<dt>Free WP theme</dt>	
+									<dd class="first"><span class="first-one slide"><em>28.39%</em></span></dd>
+								<dt>Commercial WP theme</dt>	
+									<dd class="second"><span class="second-one slide"><em>27.79%</em></span></dd>
+								<dt>Commercial WP theme with BP support</dt>	
+									<dd class="third"><span class="third-one slide"><em>26.28%</em></span></dd>
+								<dt>I create my own custom BP themes using BP theme compat</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>23.86%</em></span></dd>
+								<dt>I fork an existing theme (free or commercial)</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>23.26%</em></span></dd>
+								<dt>I create my own custom BP themes using BP theme compat overloading templates in main theme, BP theme compat disabled.</dt>	
+									<dd class="sixth"><span class="sixth-one slide"><em>18.73%</em></span></dd>
+								<dt>Free WP theme with BP support</dt>	
+									<dd class="seventh"><span class="seventh-one slide"><em>17.82%</em></span></dd>
+								<dt>Child theme of the BP Default theme</dt>
+									<dd class="eighth"><span class="eighth-one slide"><em>14.8%</em></span></dd>
+								<dt>BP Default theme</dt>
+									<dd class="ninth"><span class="ninth-one slide"><em>10.87%</em></span></dd>
+							</dl>
+						</div>
+						<div class="grid col6 end box">
+							<h3>Preferred BP Theme Features</h3>
+							<dl class="preferred-features clearfix">
+								<dt>Compatible with the latest BP version 	</dt>	
+									<dd class="first"><span class="first-one slide"><em>79.02%</em></span></dd>
+								<dt>Responsive </dt>	
+									<dd class="second"><span class="second-one slide"><em>62.31%</em></span></dd>
+								<dt>Light and Fresh Design </dt>	
+									<dd class="third"><span class="third-one slide"><em>55.92%</em></span></dd>
+								<dt>Responsive, mobile-first</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>41.33%</em></span></dd>
+								<dt>Translation-ready</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>32.82%</em></span></dd>
+								<dt>Mobile App</dt>	
+									<dd class="sixth"><span class="sixth-one slide"><em>15.80%</em></span></dd>
+								<dt>RTL support</dt>	
+									<dd class="seventh"><span class="seventh-one slide"><em>9.11%</em></span></dd>
+								<dt>Other Option (bbPress support, many options, secure, well-maintained, accessible, boilerplate theme, perfect integration, great typography)</dt>
+									<dd class="eighth"><span class="eighth-one slide"><em>7.90%</em></span></dd>
+								<dt>Dark and Edgy Design</dt>
+									<dd class="ninth"><span class="ninth-one slide"><em>7.59%</em></span></dd>
+							</dl>
+						</div>
+					</div><!-- .row -->
+					
+					<div class="row">
+						<div class="grid col6 box">
+							<h3>Number of Activated Plugins</h3>
+							<dl class="plugins-number clearfix">
+								<dt>6 to 10 plugins </dt>	
+									<dd class="first"><span class="first-one slide"><em>24.09%</em></span></dd>
+								<dt>More than 20 plugins</dt>	
+									<dd class="second"><span class="second-one slide"><em>21.98%</em></span></dd>
+								<dt>11 to 15 plugins</dt>	
+									<dd class="third"><span class="third-one slide"><em>21.98%</em></span></dd>
+								<dt>1 to 5 plugins</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>19.57%</em></span></dd>
+								<dt>16 to 20 plugins</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>12.34%</em></span></dd>
+							</dl>
+						</div>
+						<div class="grid col6 end box">
+							<h3>Devices Used to Navigate Site</h3>
+							<dl class="devices-used clearfix">
+								<dt>Desktop</dt>	
+									<dd class="first"><span class="first-one slide"><em>56.23%</em></span></dd>
+								<dt>Laptop</dt>	
+									<dd class="second"><span class="second-one slide"><em>56.23%</em></span></dd>
+								<dt>Smartphone</dt>	
+									<dd class="third"><span class="third-one slide"><em>55.31%</em></span></dd>
+								<dt>Tablet</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>21.58%</em></span></dd>
+								<dt>Other Option</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>1.51%</em></span></dd>
+							</dl>
+						</div>
+					</div><!-- .row -->
+					
+					<div class="row">
+						<div class="grid col12 box">
+							<h3>BP Plugins Activated</h3>
+							<div class="row">
+								<div class="grid col12">
+									<div class="grid col4">
+										<h4>Top BP-Specific Plugins Used</h4>
+										<ol class="bp-specific">
+											<li>BuddyPress Activity Plus</li>
+											<li>BuddyPress Group Email Subscription</li>
+											<li>Invite Anyone</li>
+											<li>Buddypress Docs</li>
+											<li>BuddyPress Activity Privacy</li>
+											<li>Buddypress Xprofile Custom Fields Type</li>
+											<li>BP Labs</li>
+											<li>BuddyPress Custom Profile Menu</li>
+											<li>BuddyPress Pending Activations</li>
+											<li>BP Profile Search</li>
+											<li>BuddyDrive</li>
+											<li>Buddypress Group Calendar</li>
+											<li>CubePoints Buddypress Integration</li>
+											<li>Welcome Pack</li>
+											<li>BuddyMenu BuddyLinks</li>
+											<li>BuddyPress Activity Comment Notifier</li>
+											<li>BuddyPress Follow</li>
+											<li>BuddyPress Username Changer</li>
+											<li>Private BuddyPress</li>
+											<li>RS Buddypress Activity Refresh</li>
+										</ol>
+
+									</div>
+									<div class="grid col8 end">
+										<h4>Top WP Plugins with BP Support Used</h4>
+										<ol class="bp-support">
+											<li>bbPress</li>
+											<li>rtMedia</li>
+											<li>s2member</li>
+											<li>Gravity Forms</li>
+											<li>Achievements</li>
+											<li>Events Manager</li>
+											<li>User Switching</li>
+											<li>W3 Total Cache</li>
+											<li>WangGuard</li>
+											<li>SI CAPTCHA Anti-Spam</li>
+											<li>Bebop</li>
+											<li>Recently Registered</li>
+										</ol>									
+									
+										<figure>
+										  <a href="plugins.html" alt="BuddyPress plugins activated visualization"><img src="images/plugins-used.png" alt="Visualization of requested BuddyPress features" /></a>
+										  <figcaption>Visualization of the BuddyPress plugins used. Click on the image above or go to the <a href="plugins.html" alt="BuddyPress plugins activated page">BuddyPress plugins activated page</a> for a larger version.</figcaption>
+										</figure>
+									</div>
+								</div>	
+							</div>							
+							
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="grid col6 box">
+							<h3>Forums Added</h3>
+							
+							<div class="canvas-container">
+								<canvas id="forumsadded" width="175" height="175"></canvas>
+							</div>
+							<ul class="legend">
+								<li><span class="forums-yes">&block;</span> Yes: 58%</li>
+								<li><span class="forums-sometimes">&block;</span> Sometimes: 23%</li> 
+								<li><span class="forums-no">&block;</span> No: 19%</li>
+							</ul>							
+						
+							<h3 class="fsu">Forums Set Up</h3>	
+							
+							<div class="canvas-container">
+								<canvas id="forumssetup" width="175" height="175"></canvas>
+							</div>
+							<ul class="legend add">
+								<li><span class="fsu-sgf">&block;</span> Sitewide and Group forums: 48%</li>
+								<li><span class="fsu-sf">&block;</span> Sitewide forums only: 29%</li> 
+								<li><span class="fsu-gf">&block;</span> Group forums only: 23%</li>
+							</ul>
+									
+						</div>
+						<div class="grid col6 end box">
+							<h3>Forum Software Used</h3>	
+							<dl class="preferred-forums clearfix">
+								<dt>bbPress plugin (2.x) </dt>	
+									<dd class="first"><span class="first-one slide"><em>90.17%</em></span></dd>
+								<dt>Other Option</dt>	
+									<dd class="second"><span class="second-one slide"><em>3.50%</em></span></dd>
+								<dt>bbPress legacy (1.x)</dt>	
+									<dd class="third"><span class="third-one slide"><em>2.45%</em></span></dd>
+								<dt>SimplePress plugin </dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>1.75%</em></span></dd>
+								<dt>Mingle forums plugin</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>1.05%</em></span></dd>
+								<dt>Vanilla forums</dt>	
+									<dd class="sixth"><span class="sixth-one slide"><em>0.70%</em></span></dd>
+								<dt>vBulletin</dt>	
+									<dd class="seventh"><span class="seventh-one slide"><em>0</em></span></dd>
+								<dt>phpBB</dt>
+									<dd class="eighth"><span class="eighth-one slide"><em>0</em></span></dd>
+							</dl>
+						</div>
+					</div><!-- .row -->						
+					
+				</div>
+			</section><!-- .themes-plugins -->
+			
+			<section class="row components-participate">
+				<header class="entry-header">
+					<h2 class="entry-title">Components and Participation</h2>
+				</header><!-- .entry-header -->
+
+				<div id="componentsparticipate" class="block">
+					<div class="row">
+						<div class="grid col6 box">
+							<h3>Components Always/Almost Always Activated </h3>
+							<dl class="components-activated clearfix">
+								<dt>Extended Profiles </dt>	
+									<dd class="first"><span class="first-one slide"><em>73.06%</em></span></dd>
+								<dt>Activity Streams</dt>	
+									<dd class="second"><span class="second-one slide"><em>69.69%</em></span></dd>
+								<dt>Member Account Settings</dt>	
+									<dd class="third"><span class="third-one slide"><em>52.52%</em></span></dd>
+								<dt>User Groups</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>49.83%</em></span></dd>
+								<dt>Notifications</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>44.44%</em></span></dd>
+								<dt>Internal Messaging</dt>	
+									<dd class="sixth"><span class="sixth-one slide"><em>40.06%</em></span></dd>
+								<dt>Friend Connections</dt>	
+									<dd class="seventh"><span class="seventh-one slide"><em>39.73%</em></span></dd>
+								<dt>Site Tracking</dt>
+									<dd class="eighth"><span class="eighth-one slide"><em>10.10%</em></span></dd>
+							</dl>						
+						</div>
+						<div class="grid col6 end box">
+							<h3>Components Never/Almost Never Activated</h3>
+							<dl class="components-notactivated clearfix">
+								<dt>Site Tracking</dt>
+									<dd class="first"><span class="first-one slide"><em>53.84%</em></span></dd>
+								<dt>User Groups</dt>	
+									<dd class="second"><span class="second-one slide"><em>25.27%</em></span></dd>
+								<dt>Friend Connections</dt>	
+									<dd class="third"><span class="third-one slide"><em>23.62%</em></span></dd>
+								<dt>Internal Messaging</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>20.32%</em></span></dd>
+								<dt>Activity Streams</dt>	
+									<dd class="fifth"><span class="fifth-one slide"><em>17.03%</em></span></dd>
+								<dt>Notifications</dt>
+									<dd class="sixth"><span class="sixth-one slide"><em>8.79%</em></span></dd>
+								<dt>Extended Profiles </dt>	
+									<dd class="seventh"><span class="seventh-one slide"><em>8.24%</em></span></dd>
+								<dt>Member Settings</dt>	
+									<dd class="eighth"><span class="eighth-one slide"><em>3.29%</em></span></dd>
+							</dl>						
+						</div>
+						<div class="grid col12">
+							<h3>BP Components Rated</h3>
+							<table class="rwd-table">
+								<thead>
+									<tr>
+									  <th>Components</th>
+									  <th>Very Satisfied</th>
+									  <th>Satisfied</th>
+									  <th>Neutral</th>
+									  <th>Dissatisfied</th>
+									  <th>Very Dissatisfied</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+									  <td data-th="Component">Extended Profiles</td>
+									  <td data-th="Very Satisfied">16.02%</td>
+									  <td data-th="Satisfied" class="highlight">43.55%</td>
+									  <td data-th="Neutral">29.61%</td>
+									  <td data-th="Dissatisfied">8.36%</td>
+									  <td data-th="Very Dissatisfied">2.43%</td>
+									</tr>
+									<tr>
+									  <td data-th="Component">Activity Streams</td>
+									  <td data-th="Very Satisfied">12.80%</td>
+									  <td data-th="Satisfied"class="highlight">41.86%</td>
+									  <td data-th="Neutral">30.10%</td>
+									  <td data-th="Dissatisfied">11.70%</td>
+									  <td data-th="Very Dissatisfied">3.46%</td>
+									</tr>
+									<tr>
+									  <td data-th="Component">Member Settings</td>
+									  <td data-th="Very Satisfied">14.33%</td>
+									  <td data-th="Satisfied" class="highlight">42.65%</td>
+									  <td data-th="Neutral">32.16%</td>
+									  <td data-th="Dissatisfied">8.74%</td>
+									  <td data-th="Very Dissatisfied">2.09%</td>
+									</tr>
+									<tr>
+									  <td data-th="Component">Friend Connections</td>
+									  <td data-th="Very Satisfied">17.77%</td>
+									  <td data-th="Satisfied" class="highlight">39.72%</td>
+									  <td data-th="Neutral">34.84%</td>
+									  <td data-th="Dissatisfied">5.92%</td>
+									  <td data-th="Very Dissatisfied">1.74%</td>
+									</tr>
+									<tr>
+									  <td data-th="Component">Internal Messaging</td>
+									  <td data-th="Very Satisfied">18.40%</td>
+									  <td data-th="Satisfied" class="highlight">36.11%</td>
+									  <td data-th="Neutral">31.59%</td>
+									  <td data-th="Dissatisfied">9.37%</td>
+									  <td data-th="Very Dissatisfied">4.51%</td>
+									</tr>
+									<tr>
+									  <td data-th="Component">User Groups</td>
+									  <td data-th="Very Satisfied">14.64%</td>
+									  <td data-th="Satisfied" class="highlight">39.02%</td>
+									  <td data-th="Neutral">33.44%</td>
+									  <td data-th="Dissatisfied">10.10%</td>
+									  <td data-th="Very Dissatisfied">2.78%</td>
+									</tr>
+									<tr>
+									  <td data-th="Component">Notifications</td>
+									  <td data-th="Very Satisfied">12.93%</td>
+									  <td data-th="Satisfied" class="highlight">38.46%</td>
+									  <td data-th="Neutral">34.61%</td>
+									  <td data-th="Dissatisfied">8.39%</td>
+									  <td data-th="Very Dissatisfied">5.59%</td>
+									</tr>
+									<tr>
+									  <td data-th="Component">Site Tracking</td>
+									  <td data-th="Very Satisfied">8.99%</td>
+									  <td data-th="Satisfied">21.94%</td>
+									  <td data-th="Neutral" class="highlight">57.91%</td>
+									  <td data-th="Dissatisfied">7.91%</td>
+									  <td data-th="Very Dissatisfied">3.23%</td>
+									</tr>
+								</tbody>
+							</table>						
+						</div>
+
+							<div class="grid col12 box block">
+								<h3>Contributed to BP Development</h3>
+								<dl class="contributed">
+									<dt>No</dt/>	
+										<dd class="first"><span class="first-one slide"><em>67%</em></span></dd>
+									<dt>Yes</dt>	
+										<dd class="second"><span class="second-one slide"><em>33%</em></span></dd>
+								</dl>
+							</div>
+							<div class="grid col12 row">
+								<div class="grid col6 box">
+									<h3>Ways Contributed to BP Development</h3>
+									<dl class="contributions clearfix">
+										<dt>Helped out in BP forums </dt>	
+											<dd class="first"><span class="first-one slide"><em>81%</em></span></dd>
+										<dt>BP Trac: Reported Bugs </dt>	
+											<dd class="second"><span class="second-one slide"><em>47%</em></span></dd>
+										<dt>BP Trac: Submitted patches </dt>	
+											<dd class="third"><span class="third-one slide"><em>30%</em></span></dd>
+										<dt>Submitted a BP plugin to the WP plugin repo </dt>	
+											<dd class="fourth"><span class="fourth-one slide"><em>26%</em></span></dd>
+										<dt>BP Trac: Tested patches </dt>
+											<dd class="fifth"><span class="fifth-one slide"><em>23%</em></span></dd>
+										<dt>Joined in BP IRC dev chat </dt>	
+											<dd class="seventh"><span class="seventh-one slide"><em>20%</em></span></dd>
+										<dt>Submitted BP translation/s </dt>	
+											<dd class="sixth"><span class="sixth-one slide"><em>20%</em></span></dd>
+										<dt>Wrote article/s in BP Codex </dt>
+											<dd class="eighth"><span class="eighth-one slide"><em>20%</em></span></dd>
+										<dt>Submitted a BP-compatible theme in the WP theme repository </dt>
+											<dd class="ninth"><span class="ninth-one slide"><em>10%</em></span></dd>
+									</dl>
+								</div>						
+
+								<div class="grid col6 end box">
+									<h3>Signed Up to Learn How to Contribute to BP Development</h3>
+									<p><strong>65 respondents from 31 countries</strong> signed up to learn how they can contribute to the development of BuddyPress. We will be contacting you soon. <br />Thank you!</p>
+									<ul class="volunteers row">
+										<li class="icon united-states"> United States (25)</li>
+										<li class="icon india"> India (4)</li>
+										<li class="icon united-kingdom"> United Kingdom (4)</li> 
+										<li class="icon france"> France (3)</li> 
+										<li class="icon netherlands"> Netherlands (3)</li> 
+										<li class="icon spain"> Spain (3)</li> 
+										<li class="icon brazil"> Brazil (2)</li> 
+										<li class="icon australia"> Australia</li> 
+										<li class="icon austria"> Austria</li> 
+										<li class="icon belgium"> Belgium</li> 
+										<li class="icon botswana"> Botswana</li> 
+										<li class="icon canada"> Canada</li>
+										<li class="icon chile"> Chile</li> 
+										<li class="icon china"> China</li> 
+										<li class="icon germany"> Germany</li> 
+										<li class="icon guyana"> Guyana</li> 
+										<li class="icon hungary"> Hungary</li> 
+										<li class="icon iran"> Iran</li>
+										<li class="icon italy"> Italy</li> 
+										<li class="icon malaysia"> Malaysia</li> 
+										<li class="icon new-zealand"> New Zealand</li> 
+										<li class="icon nigeria"> Nigeria</li> 
+										<li class="icon peru"> Peru</li> 
+										<li class="icon philippines"> Philippines</li> 
+										<li class="icon romania"> Romania</li> 
+										<li class="icon russia"> Russia</li> 
+										<li class="icon singapore"> Singapore</li> 
+										<li class="icon switzerland"> Switzerland</li> 
+										<li class="icon turkey"> Turkey</li>
+									</ul>
+								</div>
+							</div>
+
+							</div><!-- #themesplugins  -->
+			</section><!-- themes-plugins -->					
+
+			<section class="row opinions-requests">
+				<header class="entry-header">
+					<h2 class="entry-title">Opinions and Requests</h2>
+				</header><!-- .entry-header -->
+
+				<div id="opinionsrequests" class="block">
+					<div class="row">
+						<div class="grid col4 box evaluated">
+							<h3>Evaluated other Social Networking Software</h3>
+
+							<div class="canvas-container">
+								<canvas id="evalyes" width="145" height="145"></canvas>
+							</div>
+							<ul class="legend">
+								<li><span class="eval-yes">&block;</span> Yes: 67%</li>
+							</ul>
+
+							<div class="canvas-container">
+								<canvas id="evalno" width="145" height="145"></canvas>
+							</div>
+							<ul class="legend">
+								<li><span class="eval-no">&block;</span> No: 33%</li>
+							</ul>
+						</div>
+						<div class="grid col8 end box">
+							<h3>Other Social Networking Software Evaluated</h3>	
+							<dl class="social-evaluated clearfix">
+								<dt>Elgg</dt>
+									<dd class="first"><span class="first-one slide"><em>45.74%</em></span></dd>
+								<dt>Mingle, WP plugin</dt>	
+									<dd class="second"><span class="second-one slide"><em>43.08%</em></span></dd>
+								<dt>Drupal Commons</dt>	
+									<dd class="third"><span class="third-one slide"><em>40.95%</em></span></dd>
+								<dt>JomSocial</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>29.25%</em></span></dd>
+								<dt>Social Engine</dt>	
+									<dd class="fifth"><span class="fifth-one slide"><em>28.19%</em></span></dd>
+								<dt>Other Option</dt>
+									<dd class="sixth"><span class="sixth-one slide"><em>21.80%</em></span></dd>
+							</dl>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="grid col6 box">
+							<h3>BP Strengths/Opportunities</h3>
+							<dl class="strengths clearfix">
+								<dt>Free and open-sourced </dt>	
+									<dd class="first"><span class="first-one slide"><em>90.10%</em></span></dd>
+								<dt>BP is an official WordPress plugin.</dt>	
+									<dd class="second"><span class="second-one slide"><em>84.28%</em></span></dd>
+								<dt>BP is extensible</dt>	
+									<dd class="third"><span class="third-one slide"><em>70.00%</em></span></dd>
+								<dt>BP has community support</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>66.35%</em></span></dd>
+								<dt>Compatible with other WP plugins</dt>
+									<dd class="fifth"><span class="fifth-one slide"><em>63.60%</em></span></dd>
+								<dt>BP lets you own your own data</dt>	
+									<dd class="sixth"><span class="sixth-one slide"><em>58.92%</em></span></dd>
+								<dt>BP is easy to set up</dt>
+									<dd class="seventh"><span class="seventh-one slide"><em>56.42%</em></span></dd>
+								<dt>BP Components included in the plugin</dt>	
+									<dd class="eighth"><span class="eighth-one slide"><em>55.12%</em></span></dd>
+								<dt>BP Theme compatibility </dt>
+									<dd class="ninth"><span class="ninth-one slide"><em>55.12%</em></span></dd>
+								<dt>Positive feedback from your community.</dt>	
+									<dd class="tenth"><span class="tenth-one slide"><em>23.92%</em></span></dd>
+								<dt>Documentation has improved</dt>	
+									<dd class="eleventh"><span class="eleventh-one slide"><em>22.26%</em></span></dd>
+								<dt>Translation in your language</dt>
+									<dd class="twelvth"><span class="twelfth-one slide"><em>21.20%</em></span></dd>
+								<dt>BP has Groups and Forums</dt>
+									<dd class="thirteenth"><span class="thirteenth-one slide"><em>4%</em></span></dd>
+							</dl>						
+						</div>
+						<div class="grid col6 end box">
+							<h3>BP Weaknesses/Threats</h3>
+							<dl class="threats clearfix">
+								<dt>Need more features added to BuddyPress</dt>
+									<dd class="first"><span class="first-one slide"><em>59.55%</em></span></dd>
+								<dt>Performance</dt>	
+									<dd class="second"><span class="second-one slide"><em>45.88%</em></span></dd>
+								<dt>Documentation is not complete</dt>	
+									<dd class="third"><span class="third-one slide"><em>42.64%</em></span></dd>
+								<dt>Not sure about the future of the plugin</dt>	
+									<dd class="fourth"><span class="fourth-one slide"><em>40.00%</em></span></dd>
+								<dt>Spam</dt>	
+									<dd class="fifth"><span class="fifth-one slide"><em>37.64%</em></span></dd>
+								<dt>Confusing for users to navigate</dt>
+									<dd class="sixth"><span class="sixth-one slide"><em>31.37%</em></span></dd>
+								<dt>BP is not compatible with some WP plugins</dt>	
+									<dd class="seventh"><span class="seventh-one slide"><em>27.57%</em></span></dd>
+								<dt>BP is not compatible with some themes</dt>	
+									<dd class="eighth"><span class="eighth-one slide"><em>27.20%</em></span></dd>
+								<dt>Need phpdocs for developers</dt>	
+									<dd class="ninth"><span class="ninth-one slide"><em>19.11%</em></span></dd>
+								<dt>It is free, development may not be market-driven</dt>
+									<dd class="tenth"><span class="tenth-one slide"><em>17.25%</em></span></dd>
+								<dt>Confusing to set up</dt>	
+									<dd class="eleventh"><span class="eleventh-one slide"><em>15.44%</em></span></dd>
+								<dt>Translation in your language is not available</dt>	
+									<dd class="twelvth"><span class="twelfth-one slide"><em>3.30%</em></span></dd>
+								<dt>Not what I expected</dt>
+									<dd class="thirteenth"><span class="thirteenth-one slide"><em>2.20%</em></span></dd>
+							</dl>						
+						</div>	
+					</div>
+					
+					<div class="row">
+						<div class="grid col12 box clearfix">
+							<h3>Requested Improvements &amp; New Features</h3>
+							<div class="row">
+								<div class="grid col12">
+									<div class="grid col4">
+									209 respondents posted 509 requests which were categorized as follows:
+										<ul class="requests">
+											<li>Core-General: 16.92%*</li>
+											<li>Groups: 7.28%</li>
+											<li>Core - Media: 7.28%</li>
+											<li>Activity: 6.88%</li>
+											<li>BP Theme: 5.70%</li>
+											<li>Members: 5.51%</li>
+											<li>xProfiles: 5.31%</li>
+											<li>Documentation: 5.11%</li>
+											<li>Item Navigations: 4.33%</li>
+											<li>Core - Performance: 4.13%</li>
+											<li>Core - Privacy: 3.54%</li>
+											<li>Spam Prevention: 3.34%</li>
+											<li>Core - Chat: 2.95%</li>
+											<li>Integration with other Plugins: 2.75%</li>
+											<li>Notifications: 2.75%</li>
+											<li>Registration: 2.55%</li>
+											<li>Theme Compatibility: 2.55%</li>
+											<li>Core - Ajax all: 2.36%</li>
+											<li>Forums: 1.96%</li>
+											<li>Messaging: 1.57%</li>
+											<li>Core - Events: 1.37%</li>
+											<li>Core - UI/UX: 1.37%</li>
+											<li>a la Facebook: 1.18%</li>
+											<li>Core - Search: 1.18%</li>
+										</ul>
+									</div>
+									<div class="grid col8 end">
+									<figure>
+									  <a href="feature-requests.html" alt="Visualization of requested BuddyPress features"><img src="images/features.png" alt="Visualization of requested BuddyPress features" /></a>
+									  <figcaption>Visualization of the requested features. Click on the image above or go to the <a href="feature-requests.html" alt="BuddyPress feature requests page">feature requests page</a> for larger version.</figcaption>
+									</figure>
+									<p>*Core-General category includes some requests which are already being addressed in BP Trac as well as others with less than 1%.</p>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col12 box shadow clearfix">
+							<h3>Comments about BuddyPress or Survey</h3>
+							<div class="grid col6">
+							<blockquote>Keep improving this product guys!!</blockquote>
+							
+							<blockquote>Overall though, much easier to use than drupal and great people working on it. P.S. For instance, the fact that you are carrying out a survey shows you care!</blockquote>
+							
+							<blockquote>Over the last 8 years I have researched the best way to build community sites for various projects, over all others buddy press has stood the test of time and helped me help so many other people. Thank you for continuing to improve bp : ) Aloha!</blockquote>
+							
+							<blockquote>I think this is awesome! Hell of a job! =)</blockquote>
+							
+							<blockquote>Thank you for bulding BP. Please make it as stable as possible</blockquote>
+
+							<blockquote>We are trying to use BuddyPress as a "CRM" for a college - administration to communicate to students, students to set up ad hoc groups (e.g. study groups, student organizations, etc.). It doesn't quite work as we need, but is the best system we've found so far.</blockquote>
+							
+							<blockquote>Buddypress is great, and I hope to build more sites based on it.</blockquote>
+							
+							<blockquote>BP is without a doubt is the best open-source community builder software out there that can only get better if it can be handle WordPress's shortcodes properly.</blockquote>
+							
+							<blockquote>It's been awhile since I've actively participated in BP -- it's community, development, and plugin dev. I am pleased with how it has evolved and look forward to seeing what is in store for the future.</blockquote>
+							
+							<blockquote>Thx for all the coding!</blockquote>
+							
+							<blockquote>I think Buddypress is a great community site and I love that it integrates with WP and other plug-ins. I appreciate all the work that has been put into the development of this product.</blockquote>
+							
+							<blockquote>I love BuddyPress. It is an amazing tool. Thank you to all the developers who make it possible. I came to it as an open-source, lower cost alternative to Ning. Buddypress is, however, a major LABOR of love for non-technical site admins like myself.</blockquote>
+							
+							<blockquote>Survey is too long!</blockquote>
+							
+							<blockquote>BuddyPress is awesome! There are some problems with BuddyPress on MultiSite, but other than that, it was awesome! Thanks for the survey!</blockquote>
+							
+							<blockquote>I hope this survey helps the future development of buddypress. great idea to involve users! thank you!</blockquote>
+							
+							<blockquote>After 3 months of developing, the BP part of my website just went live and it's great to see people becoming friends and joining groups immediately. Thanks for making that possible!</blockquote>
+							
+							</div>
+							
+							<div class="grid col6 end">
+							<blockquote>Just keep developing it, and I'll keep on using it! :) </blockquote>
+							
+							<blockquote>It may be bulky, but I like the features it gives my site. I also noticed that the documentation has improved, good job on that!</blockquote>
+							
+							<blockquote>Happy to have my thoughts considered.</blockquote>
+							
+							<blockquote>Thank you Automattic, WordPress & BuddyPress devs. Love WordPress. Love BuddyPress and have been using it since the start. There are lots of high school, college and university students who would benefit from the exposure to free, open source, easy-to-use software, thinking and programming opportunities. </blockquote>
+							
+							<blockquote>I expected my first install would involve complicated steps and configurations ... was I wrong! Woot!</blockquote>
+							
+							<blockquote>My WP/BuddyPress/bbpress install at times feels like an enormous ball of duct tape. It takes significant amounts of dev time just to keep it running. I'm a Ning refugee and deeply hated their walled garden, but my 2+ years on BuddyPress have NOT been easy.</blockquote>
+							
+							<blockquote>I admire you guys. BP 1.9.1 is great. Good that you take feedback from the community. I've started developing BP themes from dec'13. Lets see how it goes, so far smooth and theme's almost complete.</blockquote>
+							
+							<blockquote>I appreciate your efforts on making such a wonderful software.</blockquote>
+							
+							<blockquote>I think buddy press is a good system for non profits. We are using it in a site of 1K people on a shared solution and people are mostly happy. We have been theme hacking to make it more responsive in our local environment but overall it's been a good fit.</blockquote>
+							
+							<blockquote>Please improve its performance and features.</blockquote>
+							
+							<blockquote>BP is an incredible piece of software and you should all be very proud of what you have created. Thank you for all of your hard work and know that we appreciate your efforts and put them to go use to make the world a slightly better place.</blockquote>
+							
+							<blockquote>keep rocking! free and open source!</blockquote>
+							
+							<blockquote>I love BuddyPress but it's hella tiring building out all the required theme files. That said, I wouldn't want it any other way. The flexibility is too good to miss.</blockquote>
+							
+							<blockquote>I use BuddyPress with bbPress to power a large intranet. It has proven quite popular and easy for end users.</blockquote>
+							
+							<blockquote>Keep up the great work! We love BP and would like to do more to support it's ongoing development. I'm really enjoying the new release schedule. The new theme compatibility is fantastic, and love the direction that this is taking BP.  Looking forward to BP 2.0!</blockquote>
+
+						</div>	
+					</div>	
+				</div>
+				<div class="buttons clearfix">
+					<a href="http://buddypress.org/blog/" class="button" alt="Back to the BuddyPress 2014 Survey Report">Back to the Survey Report</a> 
+					<a href="#header" class="button" alt="Back to the top of the Survey Results Page">Top of Page &uarr; </a>
+				</div>
+			</section>
+		</main>
+
+		<div id="footer" class="row">	
+			<footer class="col12" role="contentinfo">
+				<p>&copy; 2014 <a href="humans.txt" alt="BuddyPress, Social Netwoking in a box">BuddyPress</a>.</p>
+			</footer>
+		</div><!-- #footer -->	
+	</div><!-- #buddypress -->	
+	<script src="js/bpreport.js"></script>
+</body>
+</html>

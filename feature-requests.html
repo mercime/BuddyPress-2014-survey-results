@@ -1,0 +1,813 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Feature Requests - 2014 BuddyPress Survey Results">
+	<meta name="author" content="Mercime for BuddyPress.org">
+	<meta name="keywords" content="buddypress, buddypress.org, survey, survey results">
+	<title>Feature Requests - BuddyPress 2014 Survey Results</title>
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/custom.css" />
+<style>
+	body {text-align:center;background-color:#fff;}	h1 {margin: 1em auto;} #header {background-color: #efefef;} .block {margin-bottom:2em;} .node circle {fill: #fff;stroke: steelblue;stroke-width: 1px;} .node {font: 10px "Open Sans",sans-serif;font-weight:normal !imporant;} .link {fill: none;stroke: tan;stroke-width: 1px;}
+</style>
+	<script src="js/modernizr.min.js"></script>
+</head>
+
+<body>
+	<div id="buddypress" class="hfeed site">
+		<div id="header" class="row">
+			<header class="represent" role="banner">
+				<h1 class="title"><img src="images/buddypress.png" class="logo" alt="BuddyPress Logo" /> <br />BuddyPress 2014 Survey Results</h1>
+			</header>
+			<div class="clearfix">
+				<a href="index.html" alt="Back to the BuddyPress 2014 Survey Results">Back to the Survey Results Dashboard</a> | <a href="http://buddypress.org/blog/" alt="Back to the BuddyPress 2014 Survey Report">Back to the Survey Report</a> 
+			</div>
+		</div><!-- #header -->
+
+
+		<main id="content" class="main-content" role="main">
+
+		<section class="row features-requested">
+			<header class="entry-header">
+				<h2 class="entry-title">BuddyPress - Requested Features</h2>
+			</header>
+		</section>
+		<div class="col12">
+		<div id="bpfeatures" class="block">
+			<form>
+				<label><input type="radio" name="mode" value="radialtree">Radial Tree</label>
+				<label><input type="radio" name="mode" value="radialcluster">Radial Cluster</label>
+				<label><input type="radio" name="mode" value="tree">Tree</label>
+				<label><input type="radio" name="mode" value="cluster" checked>Cluster</label>
+			</form>
+		</div>
+		</div>
+		</main>
+	</div>
+
+<script type="text/javascript" src="js/d3.min.js"></script>
+<script>
+var width = 1000,
+    height = 1000;
+var diameter = 500;
+var duration = 2000;
+
+d3.selectAll("input").on("change", change);
+
+function change() {
+    if (this.value === "radialtree")
+        transitionToRadialTree();
+    else if (this.value === "radialcluster")
+        transitionToRadialCluster();
+    else if (this.value === "tree")
+        transitionToTree();
+    else
+        transitionToCluster();
+};
+
+function transitionToRadialTree() {
+
+    var nodes = radialTree.nodes(root), // recalculate layout
+        links = radialTree.links(nodes);
+    
+    svg.transition().duration(duration)
+        .attr("transform", "translate(" + (width/2) + "," +
+                                          (height/2) + ")");
+        // set appropriate translation (origin in middle of svg)
+    
+    link.data(links)
+        .transition()
+        .duration(duration)
+        .style("stroke", "#fc8d62")
+        .attr("d", radialDiagonal); //get the new radial path
+
+    node.data(nodes)
+        .transition()
+        .duration(duration)
+        .attr("transform", function(d) {
+            return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")";
+        });
+    
+    node.select("circle")
+        .transition()
+        .duration(duration)
+        .style("stroke", "#984ea3");
+    
+};
+
+function transitionToRadialCluster() {
+
+    var nodes = radialCluster.nodes(root), // recalculate layout
+        links = radialCluster.links(nodes);
+    
+    svg.transition().duration(duration)
+        .attr("transform", "translate(" + (width/2) + "," +
+                                          (height/2) + ")");
+        // set appropriate translation (origin in middle of svg)
+    
+    link.data(links)
+        .transition()
+        .duration(duration)
+        .style("stroke", "#66c2a5")
+        .attr("d", radialDiagonal); //get the new radial path
+
+    node.data(nodes)
+        .transition()
+        .duration(duration)
+        .attr("transform", function(d) {
+            return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")";
+        });
+    
+    node.select("circle")
+        .transition()
+        .duration(duration)
+        .style("stroke", "#4daf4a");
+
+};
+
+function transitionToTree() {
+    
+    var nodes = tree.nodes(root), //recalculate layout
+        links = tree.links(nodes);
+
+    svg.transition().duration(duration)
+        .attr("transform", "translate(40,0)");
+        
+    link.data(links)
+        .transition()
+        .duration(duration)
+        .style("stroke", "#e78ac3")
+        .attr("d", diagonal); // get the new tree path
+
+    node.data(nodes)
+        .transition()
+        .duration(duration)
+        .attr("transform", function (d) {
+            return "translate(" + d.y + "," + d.x + ")";
+        });
+    
+    node.select("circle")
+        .transition()
+        .duration(duration)
+        .style("stroke", "#377eb8");
+
+};
+
+function transitionToCluster() {
+    
+    var nodes = cluster.nodes(root), //recalculate layout
+        links = cluster.links(nodes);
+    
+    svg.transition().duration(duration)
+        .attr("transform", "translate(40,0)");
+  
+    link.data(links)
+        .transition()
+        .duration(duration)
+        .style("stroke", "#8da0cb")
+        .attr("d", diagonal); //get the new cluster path
+
+    node.data(nodes)
+        .transition()
+        .duration(duration)
+        .attr("transform", function (d) {
+            return "translate(" + d.y + "," + d.x + ")";
+        });
+    
+    node.select("circle")
+        .transition()
+        .duration(duration)
+        .style("stroke", "#e41a1c");
+    
+};
+
+var root; // store data in a variable accessible by all functions
+
+var tree = d3.layout.tree()
+    .size([height, width - 160]);
+
+var cluster = d3.layout.cluster()
+    .size([height, width - 160]);
+
+var diagonal = d3.svg.diagonal()
+    .projection(function (d) {
+    return [d.y, d.x];
+});
+
+var radialTree = d3.layout.tree()
+    .size([360, diameter / 2 ])
+    .separation(function(a, b) {
+        return (a.parent == b.parent ? 1 : 2) / a.depth;
+    });
+
+var radialCluster = d3.layout.cluster()
+    .size([360, diameter / 2 ])
+    .separation(function(a, b) {
+        return (a.parent == b.parent ? 1 : 2) / a.depth;
+    });
+
+var radialDiagonal = d3.svg.diagonal.radial()
+    .projection(function(d) {
+        return [d.y, d.x / 180 * Math.PI];
+    });
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(40,0)");
+
+    var root = getData(),
+        nodes = cluster.nodes(root),
+        links = cluster.links(nodes);
+
+    var link = svg.selectAll(".link")
+        .data(links)
+       .enter()
+        .append("path")
+        .attr("class", "link")
+        .style("stroke", "#8da0cb")
+        .attr("d", diagonal);
+
+    var node = svg.selectAll(".node")
+        .data(nodes)
+       .enter()
+        .append("g")
+        .attr("class", "node")
+        .attr("transform", function (d) {
+        return "translate(" + d.y + "," + d.x + ")";
+    })
+
+    node.append("circle")
+        .attr("r", 4.5)
+        .style("stroke", "#e41a1c");
+
+    node.append("text")
+        .attr("dx", function (d) { return d.children ? -8 : 8; })
+        .attr("dy", 3)
+        .style("text-anchor", function (d) { return d.children ? "end" : "start"; })
+        .text(function (d) { return d.name; });
+
+
+function getData() {
+    return {
+    "name": "BP",
+    "children": [
+        {
+            "name": "Core",
+            "children": [
+				{
+                    "name": "General",
+                    "children": [
+                        { "name": "Accessibility" },
+                        { "name": "Import tools" },
+                        { "name": "White label CMS type options" },
+						{ "name": "Able to override any/all modules" },
+						{ "name": "More shortcodes to add anywhere" },
+						{ "name": "Subscriptions" },
+						{ "name": "Ratings/like content" },
+						{ "name": "Better SEO functions" },
+						{ "name": "Remove reliance on filesystem check to load avatars" },
+						{ "name": "More customisable without having to use translations" },
+						{ "name": "URL Rewriting" },
+						{ "name": "Verified feature built-in" },
+						{ "name": "Better admin tool customizations" },
+						{ "name": "Options so users don't need to edit PHP" },
+						{ "name": "Ability to choose display language of BP interface" },
+						{ "name": "Easier to extend/manipulate" },
+						{ "name": "Data import/export" },
+						{ "name": "A BuddyPress Jetpack" },
+						{ "name": "More Admin integration" },
+						{ "name": "Hashtags feature and support" },
+                        { "name": "Get rid of the meta fields entirely" },
+						{ "name": "More filters and actions to easily hook into different places" }, 
+						{ "name": "More options for admins to edit buddypress features" }, 
+						{ "name": "Allow choice of options a member can see in profile" }, 
+						{ "name": "Reviews" }, 
+						{ "name": "Fludity between WP and BPFludity between WP and BP" }, 
+						{ "name": "More extensive api for other plugins to hook into" }, 
+						{ "name": "Full API for JSON Transactions" }, 	
+						{ "name": "Rich linking" },
+						{ "name": "Easier installation. It's too complicated." }, 
+						{ "name": "Ability to turn off the WordPress Dashboard" }, 
+						{ "name": "Better, configurable dashboards" }, 
+						{ "name": "Simple way to remove @mentions " },
+						{ "name": "More share features" },
+						{ "name": "no more error messages " },
+						{ "name": "Stability" },
+						{ "name": "Gaming Engine" },
+						{ "name": "Simple way to remove @mentions " },
+						{ "name": "Federation of BP sites" },
+						{ "name": "Integration with other social networks" }
+                    ]
+                },
+				{
+                    "name": "Media",
+                    "children": [
+                        { "name": "Built-in media handling like Facebook or Activity Plus" },
+                        { "name": "Sharing link and media in activity feed like on Facebook" },
+                        { "name": "More fully featured gallery module" },
+                        { "name": "Upload and share Photos, Videos, Sounds," },
+                        { "name": "True built in Media support Photos, Albums, Videos, etc" },
+                        { "name": "Photo Gallery" },
+                        { "name": "Sharing links, pictures, and videos as part of the core" },
+                        { "name": "Media support" },
+                        { "name": "Built in Media - Video/Photo/Audio" },
+                        { "name": "Gallery!!!" },
+                        { "name": "A Media component. Like the BP Media plugin." },
+                        { "name": "Media" },
+                        { "name": "Upload media" },
+                        { "name": "Photo album for profiles that works" },
+                        { "name": "User media support - galleries" },
+                        { "name": "Better media capability, albums in groups, albums for members" },
+                        { "name": "Shared pictures/album" },
+                        { "name": "Inline images placement" },
+                        { "name": "Social sharing for youtube, vimeo, flickr, links and others" },
+                        { "name": "BuddyPress album / media that is in house / open source, not reliant on third parties" },
+                        { "name": "Gallery for users as facebook" },
+                        { "name": "Photo albums with the possibility of tagging friends" },
+                        { "name": "User albums" },
+                        { "name": "Better Album System" },
+                        { "name": "Better media support" },
+                        { "name": "Built-in media and ability to share contextual links" },
+                        { "name": "Audio/video integration for groups" },
+                        { "name": "Media integration on all fronts" },
+                        { "name": "Community-centered, out-of-the-box media sharing and management options" },
+                        { "name": "Native support for user-uploaded media" },
+                        { "name": "Media upload in core" },
+                        { "name": "A true sharing file/gallery solution" },
+                        { "name": "Albums and Photos" },
+                        { "name": "Media management in core" },
+                        { "name": "Photo album" }
+                    ]
+                },
+				{
+                    "name": "Performance",
+                    "children": [
+                        { "name": "Performance Updates" },
+                        { "name": "Faster queries" },
+                        { "name": "Better performance - code straightened and optimized" },
+                        { "name": "Built in caching to improve performance" },
+                        { "name": "Improved performance" },
+                        { "name": "Better performance." },
+                        { "name": "Better caching support" },
+                        { "name": "Performance - caching" },
+                        { "name": "Improve code to optimize for faster performance" },
+                        { "name": "Less queries" },
+                        { "name": "I need more speed" },
+                        { "name": "Faster performance" },
+                        { "name": "4th feature - performance enhancements" },
+                        { "name": "Performance improvements" },
+                        { "name": "Improved speed" }
+                    ]
+                },
+                {
+                    "name": "Privacy",
+                    "children": [
+                        { "name": "Privacy for Members" },
+                        { "name": "Better privacy controls" },
+                        { "name": "More privacy options" },
+                        { "name": "More choices within admin to customize activity stream and profile visibility" },
+                        { "name": "more privacy settings for the WordPress community and for the groups" },
+                        { "name": "Privacy" },
+                        { "name": "Total privacy controls built-in site-wide, non-plugin" },
+                        { "name": "Many more privacy settings" },
+                        { "name": "Privacy component" },
+                        { "name": "Privacy for activity" },
+                        { "name": "Privacy settings throughout whole plugin" },
+                        { "name": "Require login for bp pages most especially the profile page" },
+                        { "name": "Better privacy" },
+                        { "name": "Selectable built in privacy for BP pages and activity stream" },
+                        { "name": "Confidentiality of the publications." },
+                        { "name": "Fine-grained Privacy in core" },
+                        { "name": "Granular profile privacy controls" }                    ]
+                },
+                {
+                    "name": "Chat",
+                    "children": [
+                        { "name": "Chat" },
+                        { "name": "Built in Chat feature" },
+                        { "name": "Live Chat" },
+                        { "name": "Mobile chat" },
+                        { "name": "Real time communication - maybe that is o2 integration." },
+                        { "name": "Chat system built in" },
+                        { "name": "Chat with friends option" },
+                        { "name": "Live text chat per group" },
+                        { "name": "A lightweight chat feature, the plugin are too server heavy." },
+                        { "name": "A live chat like on Facebook." },
+                        { "name": "Selectable chat module similar to facebooks" },
+                        { "name": "Video chat" }
+                    ]
+                },
+                {
+                    "name": "Ajax",
+                    "children": [
+                        { "name": "Refresh activity" },
+                        { "name": "Too slow, replace with backbone.js" },
+                        { "name": "Mention suggestions" },
+                        { "name": "Profile navigation tabs" },
+						{ "name": "Group navigation tabs" },
+						{ "name": "Better Ajax support" },
+						{ "name": "Ajax documentation" },
+						{ "name": "More Ajax interactions instead of page loading" }
+                    ]
+                },
+				{
+                    "name": "Events",
+                    "children": [
+                        { "name": "Core calendar of events" },
+                        { "name": "Calendar/event with attendance list" },
+                        { "name": "Events with RSVP" },
+                        { "name": "Integrated events with invitation and ticket sales" },
+						{ "name": "Events with geolocation" },
+						{ "name": "Events!" }
+                    ]
+                },
+                {
+                    "name": "UI/UX",
+                    "children": [
+						{ "name": "Clean, simple interface for admin & users: no bloat" },
+						{ "name": "A different approach to settings pages" },
+						{ "name": "Modernised display of everything in Buddypress" },
+						{ "name": "Improved and clean UI for editing profile and settings sections (frontend)" },
+						{ "name": "More time spent on UX, NUX work" },
+						{ "name": "Simper straight-forward configuration panel." },
+						{ "name": "Cleaner layout" }
+                    ]
+                },
+                {
+                    "name": "Search",
+                    "children": [
+                        { "name": "Activity Feed Search field" },
+                        { "name": "More efficient search engine" },
+                        { "name": "Better overall search of members/groups" },
+                        { "name": "Better search" },
+                        { "name": "Profile search like you see on dating sites" },
+                        { "name": "Advanced Search based on Member and Group Profile fields;" }
+                    ]
+                }
+            ]
+        },
+		{
+            "name": "Activity",
+            "children": [
+                { "name": "Sitewide activity widget" },
+                { "name": "Facebook Wall" },
+                { "name": "Custom Post Type Support" },
+                { "name": "Easier customization of template" },
+                { "name": "Better blog posts/comments integration" },
+                { "name": "Ability to repost easily" },
+                { "name": "Activity feed widget" },
+				{ "name": "Ability to set default activity type" },
+				{ "name": "Ability to easily select activity types to show" },
+				{ "name": "Like activities together" },
+				{ "name": "More flexible filters" },
+				{ "name": "Faster activity update after posts" },
+				{ "name": "Up/down vote of activity" },
+				{ "name": "Auto embed of images, videos, audios" },
+				{ "name": "Easy edit of activity from back end" },
+				{ "name": "Activity privacy similar to facebook and linkedin" },
+				{ "name": "Up/down vote of activity" }
+            ]
+        },
+        {
+            "name": "Groups",
+            "children": [
+                { "name": "Attachment Management" },
+                { "name": "Voting/election system for groups" },
+                { "name": "Categories for groups" },
+                { "name": "Need to be able to add SEO to groups." },
+                { "name": "BP Group Widget shows activity of hidden groups" },
+                { "name": "Group members-only access for content" },
+                { "name": "Further development of the groups component" },
+                { "name": "Hierarchical Groups" },
+                { "name": "Sub-groups with custom taxonomy option " },
+                { "name": "BP Group Menu for members only" },
+                { "name": "Group files" },
+                { "name": "Expand moderators beyond Group role" },
+                { "name": "File repository on groups" },
+                { "name": "Attachment handling in the group post streams" },
+                { "name": "Better control on groups" },
+                { "name": "improved group/forum integration" },
+                { "name": "Podcasts for Groups" },
+                { "name": "Customizable field options just like profiles" },
+                { "name": "Better integration for groups and group blogs" },
+                { "name": "Hierarchical groups" },
+                { "name": "Group blogs" },
+                { "name": "Groups without the need for 50 plugins to be viable" },
+                { "name": "More group customizations." },
+                { "name": "Able to add pages and turn it into a minisite" },
+                { "name": "Moderate Group creation" },
+                { "name": "Better group notifications" },
+                { "name": "Project Management for Groups" },
+                { "name": "Linkedin groups area navigation and info hierarchy" },
+                { "name": "Improved group document handling" },
+                { "name": "Group blog" },
+                { "name": "Groupsbmoderation process" },
+                { "name": "Groups to add an archive status" },
+                { "name": "Sorting ability for Group members by xprofile fields" },
+                { "name": "Group based site access and controls" },
+                { "name": "Groups own profile fields" },
+                { "name": " Improved group document handling" },
+                { "name": "Find easier UI for group admin navigation" }
+            ]
+        },
+        {
+            "name": "Members",
+            "children": [
+                { "name": "Separate BP users on multisite installs" },
+                { "name": "Upload profile image at activation" },
+                { "name": "Different user experience for different member types" },
+                { "name": "Multiple member types" },
+                { "name": "Members can post ideas, which other members can comment and rate." },
+                { "name": "User tracking" },
+                { "name": "User roles with differents profile fields" },
+                { "name": "Block users" },
+                { "name": "How i'd like my members displayed" },
+                { "name": "Member account categories" },
+                { "name": "Active Members Widget' that scales better and doesn't impact on performance" },
+                { "name": "Member account categorization" },
+                { "name": "Membership type, membership duration," },
+                { "name": "The option to use WordPress UserName as the extended profiles Name" },
+                { "name": "Ban System" },
+                { "name": "FAQ/Support: every member can contribute here" },
+                { "name": "A like button" },
+                { "name": "A banner manager for member area" },
+                { "name": "Automatically send a welcome message to new user" },
+                { "name": "Redirect user to custom url when registration is complete" },
+                { "name": "Invite new user to become friends with custom user" },
+                { "name": "Better subscription system" },
+                { "name": "Exclude user by role" },
+                { "name": "Options to move widgest on the pages of users" },
+                { "name": "Geolocation - Find friends in your area based on geolocation" },
+                { "name": "a way users can show places they have been- geo-tagging" },
+                { "name": "Same username and display name instead of two different ones" },
+                { "name": "Custom system emails w/o the need of a plugin" },
+                { "name": "Improved user roles" },
+                { "name": "Option to import users and activate" }
+            ]
+        },
+        {
+            "name": "xProfiles",
+            "children": [
+                { "name": "Different types of profiles;" },
+                { "name": "As admin I can see users profile details in my dashboard" },
+                { "name": "Admin interface for profile fields, badly needed" },
+                { "name": "More built in profile fields - specifically address" },
+                { "name": "Combined profiles" },
+                { "name": "Use taxonomies instead of/in addition to BP Xprofile tables" },
+                { "name": "Profile page to be more query based without having to go to a new page per profile tab" },
+                { "name": "xprofile-type fields for groups, natively" },
+                { "name": "Same for Profiles. Need to be able to control format of SEO for member profiles" },
+                { "name": "Conditionals profile fields" },
+                { "name": "Vertical menu on profile and responsive" },
+                { "name": "Custom Profile Fields w/o the need of a plugin" },
+                { "name": "Extended Profile UI with form builder" },
+                { "name": "Profile field types" },
+                { "name": "Custom Profile Fields Easier to configure / remove default fields" },
+                { "name": "More profile fields type" },
+                { "name": "More profile customizations" },
+                { "name": "Better Member Profile Design" },
+                { "name": "Better extended profiles;" },
+                { "name": "Extended profiles with achievements like a gamer profile on xbox live" },
+                { "name": "More user profile types" },
+                { "name": "Custom Profile Fields Easier to configure / remove default fields" },
+                { "name": "More customization of the profile page" },
+                { "name": "Profile Management For Members Account" }
+            ]
+        },
+		{
+            "name": "Notifications",
+            "children": [
+                { "name": "Centralized notifications for BP/bbPress etc" },
+                { "name": "Pop up notification for sitewide/group activity, friend request and private message" },
+                { "name": "Native android/ios notification system" },
+                { "name": "Dynamic Notifications" },
+                { "name": "Split out notifications like facebook" },
+                { "name": "Instant notifications" },
+                { "name": "More powerful notifications - live and shows comments on my activities" },
+                { "name": "Email notifications" },
+                { "name": "Allow users to reply to the message notification email" },
+                { "name": "admin" },
+                { "name": "Better Notifications Integration" },
+                { "name": "Maybe merge the Notifications and Messages functionality" },
+                { "name": "Better notifications" },
+                { "name": "Better email notifications for sitewide activity and bbPress" }
+            ]
+        },
+		{
+            "name": "Messaging",
+            "children": [
+                { "name": "Threaded messaging display on each members profile" },
+                { "name": "Private messages organized in a separate component and usable by other plugins" },
+                { "name": "Messages Component" },
+                { "name": "Real-time private messaging." },
+                { "name": "Messaging should have more ajax features" },
+                { "name": "WebRTC" },
+                { "name": "If unread for certain amount of time an email is sent to the user" },
+                { "name": "Send pictures and other files though messaging" },
+                { "name": "Instant messaging - live streaming of messages" }
+            ]
+        },
+		{
+            "name": "Forums",
+            "children": [
+                { "name": "Seamless integration with bbPress" },
+                { "name": "Multiple forums per group!" },
+                { "name": "Forum attachments in groups" },
+                { "name": "Better Forum Design" },
+                { "name": "Sub-forums in Forums with custom taxonomy option" },
+                { "name": "Better integration BP/bbpress" },
+                { "name": "Easier forum formatting" },
+                { "name": "Kick out the legacy bbPress." },
+                { "name": "Admin option to approve user first post" }
+            ]
+        },
+		{
+            "name": "Registration",
+            "children": [
+                { "name": "BP Sync and Login from other social media" },
+                { "name": "One identifier at login; either email, username or Full name" },
+                { "name": "Ability to re-send activation key / manually activate new users' accounts" },
+                { "name": "Extensive user registration moderation" },
+                { "name": "Registration process is not very customizable" },
+                { "name": "Email user login" },
+                { "name": "Registration Form shortcode or PHP snippet to display it where you want it" },
+                { "name": "It's own login screen" },
+                { "name": "Multi-step and streamlined sign-up process" },
+                { "name": "Some different way of activation other than email" },
+                { "name": "Easy register" },
+                { "name": "The registration process needs to have ability to include fields not in base profile tab." },
+                { "name": "Customisable login & registration pages" }
+            ]
+        },
+		{
+            "name": "BP Theme",
+            "children": [
+                { "name": "Cover photo " },
+                { "name": "More control over EASY customization of BP pages" },
+                { "name": "A how i'd like my members displayed dashboard" },
+                { "name": "Less rigid member page easier to customize" },
+                { "name": "New theme" },
+                { "name": "More design options, color, sizes, borders etc" },
+                { "name": "Easier to design for it" },
+                { "name": "More themes " },
+                { "name": "Directory" },
+                { "name": "More Business Community Orientated" },
+                { "name": "Ability to tighten up the screen spacing between lines." },
+                { "name": "A great default theme" },
+                { "name": "More data on the screen. Less scrolling." },
+                { "name": "New buddypress theme with a new fresh design" },
+                { "name": "The ability to use a custom login page" },
+                { "name": "Adjust headers on each page" },
+                { "name": "Easy to modify page templates with more widgets" },
+                { "name": "Maybe it's own theme, customizable, with the ability to relocate items on the screen" },
+                { "name": "Easiest way to customize EVERYTHING, l mean each part of it. Now it's really complicated." },
+                { "name": "Color schemes" },
+                { "name": "Bootstrap 3.0 integration for slicker frontend design." },
+                { "name": "Directory functionality - Restaurant Directory for example" },
+                { "name": "More responsive sexy themes!" },
+                { "name": "Mobile responsive" },
+                { "name": "More themes" },
+                { "name": "Default primed homepage that draws visitors in immediately" },
+                { "name": "Custom BuddyPress Themes area like wordpress theme section" },
+                { "name": "Require all new themes in WP.org to indicate BP compatibility" }
+            ]
+        },
+		{
+            "name": "Documentation",
+            "children": [
+                { "name": "Wiki for Docs" },
+                { "name": "Continue improving the documentation" },
+				{ "name": "Big new documentation" },
+				{ "name": "Better documentation" },
+				{ "name": "Documents library" },
+				{ "name": "Improved developer documentation" },
+				{ "name": "Better external documentation for functions" },
+				{ "name": "Explain Groups benefits" },
+				{ "name": "More documentation on API, extensions, etc." },
+				{ "name": "More support and documentations and/or tutorials" },
+				{ "name": "Document/resource organization" },
+				{ "name": "phpDocs" }
+            ]
+        },
+		{
+            "name": "All Navigation",
+            "children": [
+                { "name": "Better Profile Navigation" },
+                { "name": "Dynamic custom bp menus" },
+                { "name": "More simple navigation." },
+                { "name": "BuddyPress Navigation to be WordPress Menu Manager compatible" },
+                { "name": "Easier to add menu items to the profile page" },
+                { "name": "Ability to make basic UI customization" },
+                { "name": "Easy reordering and renaming tabs/other menus" },
+                { "name": "Custom menu w/ dropdown sub-tabs" },
+                { "name": "Menu sub nav building without code" },
+                { "name": "Easy Profile Navigation" },
+                { "name": "Easy to Edit navigation navbar" },
+                { "name": "Adjust profile menu + submenu items." },
+                { "name": "Easier to use in Wordpress themes" },
+                { "name": "Custom profile side menu" },
+                { "name": "Easy to Edit navigation navbar" },
+                { "name": "Adjust profile menu + submenu items." },
+                { "name": "Easy custom menus" },
+                { "name": "Clearer navigation in groups" },
+                { "name": "Improved menu and its flexibility" },
+                { "name": "Clean and customization toolbar" },
+                { "name": "Less need to 'navigate'" },
+                { "name": "Simpler navigation" },
+                { "name": "Ability to add menus for messages notifications with dynamic counts" },
+                { "name": "Buddypress profile bar to replace the wp admin bar" }
+            ]
+        },
+		{
+            "name": "Spam Prevention",
+            "children": [
+                { "name": "Spam prevention & reporting by users" },
+                { "name": "Better Spam Protection" },
+                { "name": "Spam Protection" },
+                { "name": "Splogger prevention and removal, preferably without captchas" },
+                { "name": "Spam prevention & reporting by users" },
+                { "name": "Anti-spam in core" },
+                { "name": "Better spam prevention or extended profiles upgrade" },
+                { "name": "Spam prevention improvements" },
+                { "name": "Spam stop" },
+                { "name": "Anti-spam component" },
+                { "name": "Spam fighting tools" },
+                { "name": "Splogger prevention and removal, preferably without captchas" },
+                { "name": "Spam control" },
+                { "name": "Stop the spam!" }
+            ]
+        },
+		{
+            "name": "Integration All",
+            "children": [
+                { "name": "3rd party social network integration" },
+                { "name": "Simplified way to ensure plugin compatibility." },
+                { "name": "SIMPLER integration with s2member" },
+                { "name": "Seamless integration with other plugins" },
+                { "name": "3rd party social network integration" },
+                { "name": "Integration with ShoutCast" },
+                { "name": "Easier integration with open graph and Seo" },
+                { "name": "I am using Skeleton plugin and the docs is not just right" },
+                { "name": "Maintain & increase integration with WP and bbPress" },
+                { "name": "Most plugins should be supported by BP team" },
+                { "name": "Integration with IRC Mibbit" },
+                { "name": "wpec/woocommerce integration to build up a marketplace" },
+                { "name": "Tools like the excellent bebop did and the not so good Buddystream" },
+                { "name": "Integration with third-party authenticators Google ID, Twitter, etc" },
+                { "name": "3rd party social network integration" },
+                { "name": "admin" },
+                { "name": "3rd party social network integration" },
+                { "name": "admin" },
+                { "name": "test-user" }
+            ]
+        },
+		{
+            "name": "Theme Compatibility",
+            "children": [
+                { "name": "Themes that work" },
+                { "name": "More Theme Compatibility" },
+                { "name": "A return to the level of theme compatibility the system had from 1.7 until 1.9" },
+                { "name": "Adjusting pages through plugin instead of template files" },
+                { "name": "Upgrading from BP Default to a bespoke themeis not as easy as I wish it were" },
+                { "name": "Compatibility with codecanyon and themeforest top sellers" },
+                { "name": "Widgets instead of pages" },
+                { "name": "Easier to customise template pages - such as registration" },
+                { "name": "Themes and theme compatibility" },
+                { "name": "Compatible with most themes." },
+                { "name": "Register / Login page with ability to edit it is an ABSOLUTE must" },
+                { "name": "Group file handling" },
+                { "name": "Better theme support" },
+                { "name": "Proper Native Multilingual handling and seamless integration with WordPress shortcodes" },
+                { "name": "Multilingual" }
+
+            ]
+        },
+		{
+            "name": "a la Facebook",
+            "children": [
+                { "name": "Better Facebook integration" },
+                { "name": "Better Facebook and Twitter connection" },
+                { "name": "Activity Wall like Facebook" },
+                { "name": "Like Facebook" },
+                { "name": "Facebook clone" },
+                { "name": "Feature to invite FB friends" },
+                { "name": "Facebook style Profiles" },
+				{ "name": "Pages module, as in FB" }
+            ]
+        }
+    ]
+};
+}
+</script>
+</body>
+</html>
