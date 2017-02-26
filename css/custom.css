@@ -194,7 +194,7 @@ dl { width: 100%;}
 dt, dd {margin-bottom:.5em; margin-left:0;}
 dd {background: #f5f5f5; display: block; float: left; line-height: 1.5em; position: relative; text-align: right; width: 100%;}
 dd span{ display: block; margin-right: 10%; text-align: right;}
-dd em { font-size: .8em; font-style: normal; font-weight: 700; margin-right: -50px;} 
+dd em { display: block; font-size: .8em; font-style: normal; font-weight: 700; margin-right: -50px;} 
 .bp-version span{ background: #d94e27;}
 .bp-version .first-one{ width:85%;}
 .bp-version .second-one{width:24%;}
